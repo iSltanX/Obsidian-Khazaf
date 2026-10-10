@@ -279,7 +279,7 @@ python3 scripts/build.py              # بعد كل تعديل في src/
 
 <p align="center"><sub>
   تصميم وتطوير: سلطان — Sultan · <a href="https://bysltan.com">bysltan.com</a><br>
-  للتواصل: <a href="mailto:iSultanby@gmail.com">iSultanby@gmail.com</a>
+  للتواصل: <a href="mailto:S@BySltan.com">S@BySltan.com</a>
 </sub></p>
 
 </div>
