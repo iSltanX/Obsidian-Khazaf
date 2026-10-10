@@ -122,5 +122,5 @@ Fonts: [Vazirmatn](https://github.com/rastikerdar/vazirmatn), [Markazi Text](htt
 
 <p align="center"><sub>
   Design &amp; development: Sultan — سلطان · <a href="https://bysltan.com">bysltan.com</a><br>
-  Contact: <a href="mailto:iSultanby@gmail.com">iSultanby@gmail.com</a>
+  Contact: <a href="mailto:S@BySltan.com">S@BySltan.com</a>
 </sub></p>
