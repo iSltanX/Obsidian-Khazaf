@@ -12,11 +12,11 @@
 ## طريقة العمل
 
 1. عدّل في `src/` فقط. ملف `theme.css` يُولَّد بالبناء ولا يُحرَّر يدويًا.
-2. شغّل البناء:
+2. شغّل البناء، ويكفيه Python 3:
    ```bash
-   python3 scripts/fetch-fonts.py   # مرة واحدة (يحتاج: pip install fonttools brotli)
    python3 scripts/build.py
    ```
+   الخطوط المقلّصة موجودة في `fonts/`، فلا تشغّل `scripts/fetch-fonts.py` إلا إن كان تعديلك يخصّ الخطوط نفسها.
 3. افتح `test-vault` في Obsidian كقبو، وجرّب تعديلك في:
    - الوضعين الفاتح والداكن.
    - القراءة، والمعاينة الحية، ووضع المصدر.

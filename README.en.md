@@ -45,7 +45,7 @@ Real screenshots from Obsidian 1.14.4.
 
 ## Features
 
-- **Arabic typography.** Vazirmatn body at 17px with a 1.75 line height so diacritics never collide; Markazi Text (Naskh) for h1–h3; a 700px line of roughly 70–85 Arabic characters.
+- **Arabic typography.** Vazirmatn body with a 1.75 line height so diacritics never collide, designed for a 17px font size; Markazi Text (Naskh) for h1–h3; a 700px line of roughly 70–85 Arabic characters.
 - **Footnotes.** Bracket-less superscript numbers, a smaller footnote list, a ↩ back-link and a highlighted `:target`.
 - **Blocks.** Callouts with an inline-start bar and type-colored titles; a light-weight blockquote instead of italics; zebra tables; pill tags.
 - **Code.** Always LTR inside Arabic notes, Arabic comments read correctly, horizontal scroll on mobile instead of wrapping.
@@ -106,17 +106,18 @@ The theme hides the table chrome, sets each hemistich in Markazi Text and stacks
 
 ## Development
 
+The build needs only Python 3; the subset fonts are already in `fonts/`.
+
 ```bash
-python3 scripts/fetch-fonts.py        # once: downloads and subsets fonts (needs fonttools + brotli)
-./scripts/setup-test-plugins.sh       # once: Style Settings + Dataview in the test vault
 python3 scripts/build.py              # after every change in src/
+./scripts/setup-test-plugins.sh       # once: Style Settings + Dataview in the test vault (needs a logged-in gh)
 ```
 
-The build copies the theme into `test-vault/`; open that folder as a vault to try changes. To release, bump `version` in `manifest.json`, add a line to [CHANGELOG.md](CHANGELOG.md) and push a tag with the same number. See [CONTRIBUTING.md](CONTRIBUTING.md).
+The build copies the theme into `test-vault/`; open that folder as a vault to try changes. Run `python3 scripts/fetch-fonts.py` (needs `pip install fonttools brotli`) only to update the fonts themselves: it downloads and subsets them again, which changes `fonts/` and, after a build, `theme.css`. To release, bump `version` in `manifest.json`, add a line to [CHANGELOG.md](CHANGELOG.md) and push a tag with the same number. See [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## Credits & license
 
-Fonts: [Vazirmatn](https://github.com/rastikerdar/vazirmatn), [Markazi Text](https://github.com/Tarobish/Markazi), [JetBrains Mono](https://github.com/JetBrains/JetBrainsMono), all SIL OFL 1.1 ([fonts/NOTICE.md](fonts/NOTICE.md)). Icons: [Lucide](https://lucide.dev) via Obsidian. Theme code: [MIT](LICENSE).
+Fonts: [Vazirmatn](https://github.com/rastikerdar/vazirmatn), [Markazi Text](https://github.com/BornaIz/markazitext), [JetBrains Mono](https://github.com/JetBrains/JetBrainsMono), all SIL OFL 1.1 ([fonts/NOTICE.md](fonts/NOTICE.md)). Icons: [Lucide](https://lucide.dev) via Obsidian. Theme code: [MIT](LICENSE).
 
 ---
 

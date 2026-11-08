@@ -8,7 +8,7 @@
 
 <p align="center">ثيم Obsidian للكتابة العربية الطويلة: سطح ضبابي، حبر أردوازي، ولمسة طين.</p>
 
-<p align="center" dir="ltr"><b>An Arabic-first Obsidian theme for long-form writing:</b> misty surfaces, slate ink and a touch of terracotta. Fully mirrored RTL, Arabic typography with embedded fonts, footnotes, poetry, alternate checkboxes, light and dark modes, and 28 Style Settings options. <a href="README.en.md">Full English documentation →</a></p>
+<p align="center" dir="ltr"><b>An Arabic-first Obsidian theme for long-form writing:</b> misty surfaces, slate ink and a touch of terracotta. Fully mirrored RTL, Arabic typography with embedded fonts, footnotes, poetry, alternate checkboxes, light and dark modes, and 23 Style Settings options. <a href="README.en.md">Full English documentation →</a></p>
 
 <p align="center">
   <a href="https://github.com/iSltanX/obsidian-khazaf/releases/latest"><img src="https://img.shields.io/github/v/release/iSltanX/obsidian-khazaf?label=release&color=C2552B" alt="الإصدار"></a>
@@ -54,7 +54,7 @@
 ## المزايا
 
 **القراءة والكتابة**
-- المتن بخط Vazirmatn بحجم 17 وتباعد أسطر 1.75، حتى لا تتصادم الحركات بين الأسطر.
+- المتن بخط Vazirmatn وتباعد أسطر 1.75، حتى لا تتصادم الحركات بين الأسطر. والثيم مصمّم على حجم خط 17.
 - العناوين الكبرى بخط Markazi Text النسخي، والصغرى بخط الواجهة لتبقى واضحة.
 - سطر بعرض 700 بكسل، نحو 70 إلى 85 حرفًا عربيًا في السطر.
 
@@ -243,20 +243,23 @@ body {
 
 ```
 src/            مصدر الثيم مقسّمًا: المتغيرات، اللوحات، المتن، الواجهة، RTL، الهاتف، الإعدادات، الصناديق، الأصناف، الإضافات
-fonts/          ملفات الخطوط ورخصتها
-scripts/        جلب الخطوط، والبناء، وتثبيت إضافات التجربة، وأداة فحص داخل Obsidian
+fonts/          الخطوط المقلّصة الجاهزة للتضمين، ورخصتها
+scripts/        البناء، وجلب الخطوط وتقليصها، وتثبيت إضافات التجربة، وأداة فحص داخل Obsidian (cdp.mjs)
 test-vault/     قبو تجريبي بملاحظات عربية حقيقية
-docs/           الصور ولقطات التصميم
+docs/           صور README ولقطات الشاشة
 theme.css       ناتج البناء، لا تحرّره يدويًا
 ```
 
+البناء يحتاج Python 3 وحده، فالخطوط المقلّصة موجودة في `fonts/`:
+
 ```bash
-python3 scripts/fetch-fonts.py        # مرة واحدة: يجلب الخطوط ويقلّصها (يحتاج fonttools وbrotli)
-./scripts/setup-test-plugins.sh       # مرة واحدة: Style Settings وDataview في قبو التجربة
 python3 scripts/build.py              # بعد كل تعديل في src/
+./scripts/setup-test-plugins.sh       # مرة واحدة: Style Settings وDataview في قبو التجربة (يحتاج gh مسجّل الدخول)
 ```
 
 البناء ينسخ الثيم إلى `test-vault`، فافتح هذا المجلد في Obsidian كقبو لتجربة تعديلاتك. مجلد `03 عرض الثيم` فيه ملاحظات تجمع الصناديق البديلة وDataview وملاحظة الشعر.
+
+لتحديث الخطوط نفسها من Google Fonts شغّل `python3 scripts/fetch-fonts.py`، ويحتاج `pip install fonttools brotli`. السكربت يجلب الخطوط ويقلّصها من جديد، وهذا يغيّر ملفات `fonts/`، ثم `theme.css` بعد البناء. لذلك لا تشغّله إلا إن كان التعديل يخصّ الخطوط.
 
 **للإصدار:** ارفع رقم `version` في `manifest.json` وأضف سطرًا في [سجل التغييرات](CHANGELOG.md)، ثم ادفع وسمًا بالرقم نفسه، مثل `0.2.1`. ينشئ GitHub Actions مسودة إصدار فيها `theme.css` و`manifest.json`.
 
@@ -265,7 +268,7 @@ python3 scripts/build.py              # بعد كل تعديل في src/
 ## شكر
 
 - [Vazirmatn](https://github.com/rastikerdar/vazirmatn) لصابر راستي كردار.
-- [Markazi Text](https://github.com/Tarobish/Markazi) لبرنا إيزدبناه وفلوريان رونغه.
+- [Markazi Text](https://github.com/BornaIz/markazitext) لبرنا إيزدبناه وفلوريان رونغه.
 - [JetBrains Mono](https://github.com/JetBrains/JetBrainsMono).
 - أيقونات [Lucide](https://lucide.dev) التي يستخدمها Obsidian.
 - إضافة [Style Settings](https://github.com/obsidian-community/obsidian-style-settings) التي جعلت الإعدادات ممكنة.
